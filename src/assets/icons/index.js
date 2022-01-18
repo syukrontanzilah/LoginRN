@@ -16,6 +16,14 @@ import IconJam from './clock.svg'
 import IconClose from './close.svg';
 import IconSampah from './trash.svg'
 
+import IconBPJS from './bpjs-icon.svg'
+import IconEPAY from './epayslip-icon.svg';
+import IconLOAN from './loan-icon.svg';
+
+import IconEyes from './eye.svg'
+import IconEyeSlash from './eye-slash.svg'
+import IconNotification from './bell-1.svg'
+
 
 export{
     IconHome,
@@ -34,5 +42,8 @@ export{
     IconBack,
     IconJam,
     IconClose,
-    IconSampah
+    IconSampah,
+
+    IconBPJS, IconEPAY, IconLOAN,
+    IconEyes, IconEyeSlash, IconNotification
 }
