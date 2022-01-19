@@ -11,7 +11,3 @@ export const responsiveWidth = (width) => {
 export const responsiveHeight = (height) => {
     return windowHeight*height/heightMobileUI
 }
-
-export const numberWithComas = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".")
-}

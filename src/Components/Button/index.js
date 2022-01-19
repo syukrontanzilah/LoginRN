@@ -1,8 +1,8 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { colors } from '../../utils/colors'
-import { responsiveHeight } from '../../utils/util'
 import { fonts } from '../../utils/fonts'
+import { responsiveHeight } from '../../utils/util'
 
 const Button = ({title, bckgcolor, color, onPress}) => {
     return (

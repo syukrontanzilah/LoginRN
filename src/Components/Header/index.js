@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { IconBack } from '../../assets/icons'
 import { colors } from '../../utils/colors'
 import { responsiveWidth } from '../../utils/util'

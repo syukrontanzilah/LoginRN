@@ -1,15 +1,43 @@
-import React, {useState} from 'react'
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
-import {Header, Input, Button, Gap, ButtonIcon} from '../../Components'
+import axios from 'axios'
+import React, { useState } from 'react'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ImgApple, ImgFacebook, ImgGoogle } from '../../assets/images'
+import { Button, ButtonIcon, Gap, Header, Input, InputIcon, Loading } from '../../Components'
+import { storeData } from '../../utils'
 import { colors } from '../../utils/colors'
-import { responsiveHeight, responsiveWidth } from '../../utils/util'
 import { fonts } from '../../utils/fonts'
-import { IconHome, IconArrowRight } from '../../assets/icons'
-import { ImgGoogle, ImgFacebook, ImgApple } from '../../assets/images'
+import { responsiveHeight, responsiveWidth } from '../../utils/util'
 
 const Login = ({navigation}) => {
     const[eye, setEye] = useState('')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(false)
+
+    const onContinue = () => {
+        setLoading(true)
+        const URL= "https://tasklogin.herokuapp.com/api/login"
+        axios.post(URL, {
+            username: 'johndoe',
+            password: 'password'
+        }).then(res =>{
+            console.log('datanyalogin', res.data )
+            setLoading(false)
+            storeData("user:", res.data.accessToken)
+            navigation.replace('Home')
+        })
+        .catch(error =>{
+            console.log(error)
+            setLoading(false)
+        })
+        console.log('username & password ==>:', username, password)
+        // getData('user:').then(res => {
+        //     console.log('data', res)})
+        setUsername('')
+        setPassword('')
+    }
     return (
+        <>
         <View style={styles.page}>
               <Header
               onPress={()=>navigation.navigate('Splash')}
@@ -24,19 +52,24 @@ const Login = ({navigation}) => {
                 <Input
                 label="Username"
                 placeholder="Enter your username"
+                value={username}
+                onChangeText={(value)=> setUsername(value)}
                 />
-                <Input
+                <InputIcon
                 label="Password"
                 placeholder="Enter your password"
-                secureTextEntry={true}
-                type="eye"
+                secureTextEntry={eye? true: false}
+                type={eye? "eye": "eyeSlash"}
+                onPress={()=>setEye(!eye)}
+                value={password}
+                onChangeText={(value)=> setPassword(value)}
                 />
                 <TouchableOpacity>
                     <Text style={styles.forgot}>Forgot your password?</Text>
                 </TouchableOpacity>
                 <Gap height={20}/>
                 <Button
-                onPress={()=> navigation.navigate('Home')}
+                onPress={onContinue}
                 title="Log in"/>
             </View>
 
@@ -58,6 +91,11 @@ const Login = ({navigation}) => {
 
             </ScrollView>
         </View>
+        {
+            loading && <Loading/>
+        }
+       
+        </>
     )
 }
 

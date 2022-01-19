@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
     page:{
         backgroundColor:'white',
         flex:1,
-        // justifyContent:'center',
         alignItems:'center',
         paddingHorizontal:responsiveWidth(20),
         paddingTop: responsiveHeight(20)
@@ -83,7 +82,6 @@ const styles = StyleSheet.create({
         fontSize:16,
     },
     wrapButton:{
-        // backgroundColor:'yellow',
         width:'100%',
         flexDirection:'row',
         justifyContent:'space-between',

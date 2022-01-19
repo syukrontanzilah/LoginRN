@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, TextInput, View } from 'react-native'
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { IconEyes, IconEyeSlash } from '../../assets/icons'
 import { colors } from '../../utils/colors'
 import { fonts } from '../../utils/fonts'
 import { responsiveWidth } from '../../utils/util'
 
-const Input = ({label, placeholder, secureTextEntry, type, onPress, value, onChangeText}) => {
+const InputIcon = ({label, placeholder, secureTextEntry, type, onPress, value, onChangeText}) => {
     const [border, setBorder] = useState('lightgray')
     const onFocusForm = () =>{
         setBorder(colors.primary)
@@ -13,6 +14,24 @@ const Input = ({label, placeholder, secureTextEntry, type, onPress, value, onCha
         setBorder(colors.lightgray)
     }
     
+    const IconEye = ()=> {
+        if(type==="eye")
+        return(
+            <TouchableOpacity 
+            onPress ={onPress}
+            style={styles.iconWrap}>
+            <IconEyes/>
+            </TouchableOpacity>
+        )
+        if(type==="eyeSlash")
+        return <TouchableOpacity 
+        onPress ={onPress}
+        style={styles.iconWrap}>
+        <IconEyeSlash/>
+        </TouchableOpacity>
+  
+        return null
+    }
     return (
         <View>
             <Text style={styles.label}>{label}</Text>
@@ -25,14 +44,16 @@ const Input = ({label, placeholder, secureTextEntry, type, onPress, value, onCha
             onBlur={onBlurForm}
             value={value}
             onChangeText={onChangeText}
-            />          
+            />
+      <IconEye/>
+          
             </View>
          
         </View>
     )
 }
 
-export default Input
+export default InputIcon
 
 const styles = StyleSheet.create({
     label:{
@@ -53,7 +74,6 @@ const styles = StyleSheet.create({
     iconWrap:{
         position:'absolute',
         zIndex:100,
-        // backgroundColor:'wheat',
         height: 50,
         width:50,
         justifyContent:'center',

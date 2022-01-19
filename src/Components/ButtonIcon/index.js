@@ -1,8 +1,7 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import { ImgApple } from '../../assets/images'
-import { responsiveWidth, responsiveHeight } from '../../utils/util'
+import { Image, StyleSheet, TouchableOpacity } from 'react-native'
 import { colors } from '../../utils/colors'
+import { responsiveHeight, responsiveWidth } from '../../utils/util'
 
 const ButtonIcon = ({image}) => {
     return (

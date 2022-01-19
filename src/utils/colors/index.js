@@ -1,5 +1,4 @@
 export const colors = {
-    // primary : '#22668a',
     primary : 'darkcyan',
     white :'white',
     lightgray: 'lightgray',

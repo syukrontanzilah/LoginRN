@@ -1,7 +1,7 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import { IconEPAY, IconBPJS, IconLOAN } from '../../assets/icons'
-import { colors, fonts } from '../../utils'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { IconBPJS, IconEPAY, IconLOAN } from '../../assets/icons'
+import { fonts } from '../../utils'
 
 const Menu1 = ({title, type}) => {
 const Icon = () => {

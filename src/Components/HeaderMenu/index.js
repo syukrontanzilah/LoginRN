@@ -1,7 +1,6 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import { colors } from '../../utils'
-import { IconJam, IconNotification } from '../../assets/icons'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { IconNotification } from '../../assets/icons'
 import { ImageProfile } from '../../assets/images'
 
 const HeaderMenu = () => {

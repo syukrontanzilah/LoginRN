@@ -1,13 +1,12 @@
 import React from 'react'
-import { StyleSheet, Text, View, ScrollView } from 'react-native'
-import {colors, responsiveWidth, fonts} from '../../utils'
-import { HeaderMenu, Menu1, Menu2, SearchHome, Gap } from '../../Components'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import { ImageApplicant, ImageBookmark, ImageJobPosting, ImageYourProject } from '../../assets/images'
+import { Gap, HeaderMenu, Menu1, Menu2, SearchHome } from '../../Components'
+import { colors, fonts, responsiveWidth } from '../../utils'
 
 const Home = () => {
     return (
         <ScrollView style={styles.page}>
-
             <HeaderMenu/>
             <Gap height={80}/>
             <SearchHome/>
@@ -34,8 +33,6 @@ const Home = () => {
                 <Menu2 title="Job posting" image={ImageJobPosting}/>
                 <Menu2 title="Your Project" image={ImageYourProject}/>
             </View>
-         
-
         </ScrollView>
     )
 }
